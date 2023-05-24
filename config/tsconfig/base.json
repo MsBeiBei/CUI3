@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Base Ts Config",
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": [
+            "ESNext"
+        ],
+        "strict": true,
+        // 跳过类型声明文件的类型检查
+        "skipLibCheck": true,
+        // es 模块 互操作，兼容 ESModule 和 CommonJS 之间的差异
+        "esModuleInterop": true,
+        // 即使模块没有显式指定 default 导出，也允许通过 import x from 'y'，忽略报错 
+        "allowSyntheticDefaultImports": true,
+        // 强制区分文件名大小写
+        "forceConsistentCasingInFileNames": true,
+        // switch 语句中强制包含 break 或者 return
+        "noFallthroughCasesInSwitch": true,
+        // 允许导入扩展名为.json的模块
+        "resolveJsonModule": true,
+        // 将没有 import/export 的文件视为旧（全局而非模块化）脚本文件
+        "isolatedModules": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

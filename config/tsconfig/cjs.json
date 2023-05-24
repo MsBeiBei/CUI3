@@ -1,0 +1,12 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "CommonJS",
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ESNext",
+      "lib": ["ESNext"],
+      "moduleResolution": "Node",
+      "declaration": true,
+      "resolveJsonModule": true
+    }
+  }
