@@ -1,0 +1,5 @@
+{
+    "name": "@config/ts-config",
+    "type": "module",
+    "private": true
+}
