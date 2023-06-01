@@ -1,26 +1,6 @@
-function test(){
-    try{
+let num: number = 1
+let str: string = 'hello'
+let student: { name: string; age: number }  = { name: '小明', age: 12}
 
-    }catch(error){
-        
-    }
-}
-
-class UserAccount {
-    name: string;
-   
-    email: string | undefined = undefined;
- 
-    address: string | undefined;
-   
-    constructor(name: string) {
-      this.name = name;
-      // Note that this.email is not set
-    }
-  }
-
-  function Person(name:String, age:String) {
-    this.name = name;
-    this.age = age;
-  }
-  
+num = str = student = null
+num = str = student = undefined

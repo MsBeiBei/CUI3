@@ -45,17 +45,11 @@
   
 - **noUnusedParameters** `[boolean]`
   - If you want to
-   
-- **strict** `[boolean]`
-  > : We ask that all users read our [legal disclaimer](./DISCLAIMER.md) before using icons from Simple Icons.
   
 - **strictBindCallApply** `[boolean]`
   - If you want to 
   
 - **strictFunctionTypes** `[boolean]`
-  - If you want to 
-  
-- **strictNullChecks** `[boolean]`
   - If you want to 
   
 - **strictPropertyInitialization** `[boolean]`
@@ -77,4 +71,38 @@
         console.error(err.message);
     }
   }
+  ```
+
+- **strict** `[boolean]`
+  Strict mode in TypeScript is not the same as strict mode in JavaScript (i.e., use strict). If set to `true`, TypeScript will enable the following type checking rules by default.
+
+  ```html
+  {
+    "strictNullChecks": true 
+  }
+  ```
+
+- **strictNullChecks** `[boolean]`
+  - When set to `false`, null and undefined are subtypes of any type, so the following syntax will not throw an error.
+  
+  ```javascript
+  let num: number = 1
+  let str: string = 'hello'
+  let student: { name: string; age: number }  = { name: '小明', age: 12}
+
+  num = str = student = null
+  num = str = student = undefined
+  ```
+
+  This may lead to unknown results or even runtime errors, because the following values or operations are legal:
+
+  ```javascript
+  console.log(num + 10) // NaN
+  console.log(student.age) // TypeError: Cannot read property 'age' of undefined
+  ```
+
+  - Setting to `true` will raise an error.
+
+  ```javascript
+  > :information_source: 'loggedInUser' is possibly 'undefined'.
   ```
