@@ -6,6 +6,7 @@
         ],
         "strict": true,
         "strictNullChecks":true,
-        "strictPropertyInitialization":true
+        "strictPropertyInitialization":true,
+        "noImplicitThis":false
     }
 }

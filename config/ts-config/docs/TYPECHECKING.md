@@ -47,7 +47,7 @@
   - If you want to
    
 - **strict** `[boolean]`
-  - If you want to 
+> :information_source: We ask that all users read our [legal disclaimer](./DISCLAIMER.md) before using icons from Simple Icons.
   
 - **strictBindCallApply** `[boolean]`
   - If you want to 

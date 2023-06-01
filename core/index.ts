@@ -8,7 +8,6 @@ function test(){
 
 class UserAccount {
     name: string;
-    accountType:number = undefined;
    
     email: string | undefined = undefined;
  
@@ -19,3 +18,9 @@ class UserAccount {
       // Note that this.email is not set
     }
   }
+
+  function Person(name:String, age:String) {
+    this.name = name;
+    this.age = age;
+  }
+  
