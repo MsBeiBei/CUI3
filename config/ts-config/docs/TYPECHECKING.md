@@ -76,7 +76,7 @@
 - **strict** `[boolean]`
   Strict mode in TypeScript is not the same as strict mode in JavaScript (i.e., use strict). If set to `true`, TypeScript will enable the following type checking rules by default.
 
-  ```html
+  ```json
   {
     "strictNullChecks": true 
   }
@@ -85,7 +85,7 @@
 - **strictNullChecks** `[boolean]`
   - When set to `false`, null and undefined are subtypes of any type, so the following syntax will not throw an error.
   
-  ```javascript
+  ```js
   let num: number = 1
   let str: string = 'hello'
   let student: { name: string; age: number }  = { name: '小明', age: 12}
@@ -96,14 +96,14 @@
 
   This may lead to unknown results or even runtime errors, because the following values or operations are legal:
 
-  ```javascript
+  ```js
   console.log(num + 10) // NaN
   console.log(student.age) // TypeError: Cannot read property 'age' of undefined
   ```
 
   - Setting to `true` will raise an error.
 
-  ```javascript
+  ```js
   declare const loggedInUsername: string;
  
   const users = [
@@ -114,4 +114,3 @@
   const loggedInUser = users.find((u) => u.name === loggedInUsername);
   console.log(loggedInUser.age);
   ```
-  > :information_source: 'loggedInUser' is possibly 'undefined'.
