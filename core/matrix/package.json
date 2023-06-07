@@ -1,0 +1,5 @@
+{
+    "name": "@core/matrix",
+    "type": "module",
+    "private": true
+}
