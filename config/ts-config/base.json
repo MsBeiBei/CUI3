@@ -21,7 +21,7 @@
         // 允许解析 JSON 模块
         "resolveJsonModule": true,
         // 将没有 import/export 的文件视为旧（全局而非模块化）脚本文件
-        "isolatedModules": true,
+        "isolatedModules": true
     },
     "exclude": [
         "node_modules"

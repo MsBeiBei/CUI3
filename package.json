@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "designer:dev": "pnpm --filter @core/designer dev"
+    "designer:dev": "pnpm --filter @app/designer dev"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",

@@ -1,0 +1,5 @@
+{
+    "name": "@app/mspbots",
+    "private": true,
+    "type": "module"
+}
