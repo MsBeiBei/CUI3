@@ -1,7 +1,0 @@
-{
-    "name": "@core/editor",
-    "type": "module",
-    "private": true,
-    "dependencies": {},
-    "devDependencies": {}
-}
