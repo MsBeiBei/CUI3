@@ -2,8 +2,33 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "ESNext",
+        "baseUrl": ".",
+        "declaration": true,
+        "declarationMap": false,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSources": false,
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        "preserveWatchOutput": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "resolveJsonModule": true,
+        "noEmit": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "lib": [
+            "ESNext"
+        ],
         "types": [
             "@core/types"
         ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
     }
 }
