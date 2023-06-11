@@ -1,7 +1,4 @@
-/**
- * 创建固定数组长度的数组泛型扩展
- */
-declare interface FixedLengthArray<T, L extends number> extends Array<T> {
+declare interface FixedLengthArray<T extends unknown, L extends number> extends Array<T> {
     0: T;
     length: L;
 }

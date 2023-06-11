@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "ESNext",
+        "module": "commonjs",
         "baseUrl": ".",
         "declaration": true,
         "declarationMap": false,
@@ -20,7 +20,8 @@
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "lib": [
-            "ESNext"
+            "ESNext",
+            "DOM"
         ],
         "types": [
             "@core/types"

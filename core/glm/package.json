@@ -1,7 +1,10 @@
 {
     "name": "@core/glm",
-    "type": "module",
     "private": true,
+    "scripts": {
+        "test": "vitest",
+        "coverage": "vitest run --coverage"
+    },
     "devDependencies": {
         "@core/types": "workspace:^"
     }
