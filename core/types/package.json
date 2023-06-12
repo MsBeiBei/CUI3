@@ -1,5 +1,5 @@
 {
-    "name": "@core/types",
+    "name": "@anadi/core-types",
     "private": true,
     "type": "module",
     "types": "index.d.ts"

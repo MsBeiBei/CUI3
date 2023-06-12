@@ -2,9 +2,27 @@
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
   "rushVersion": "5.99.0",
   "pnpmVersion": "8.6.2",
-  "nodeSupportedVersionRange": "18.16.0",
+  "nodeSupportedVersionRange": "^18.16.0",
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 3,
+  "ensureConsistentVersions": true,
+  "approvedPackagesPolicy": {
+    "reviewCategories": [
+      "frontend",
+      "backend",
+      "common",
+      "tools",
+      "internal"
+    ],
+    "ignoredNpmScopes": [
+      "@types"
+    ]
+  },
   "gitPolicy": {},
-  "repository": {},
+  "repository": {
+    "url": "https://github.com/MsBeiBei/ANADI.git",
+    "defaultBranch": "main"
+  },
   "eventHooks": {
     "preRushInstall": [],
     "postRushInstall": [],
@@ -13,6 +31,13 @@
   },
   "variants": [],
   "projects": [
-    
+    {
+      "packageName": "@anadi/core-glm",
+      "projectFolder": "core/glm"
+    },
+    {
+      "packageName": "@anadi/core-types",
+      "projectFolder": "core/types"
+    }
   ]
 }

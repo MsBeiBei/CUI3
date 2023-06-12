@@ -1,0 +1,5 @@
+{
+    "name": "@anadi/tsconfig",
+    "private": true,
+    "type": "module"
+}
