@@ -1,4 +1,0 @@
-packages:
-  - ../../config/ts-config
-  - ../../core/glm
-  - ../../core/types

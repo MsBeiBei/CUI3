@@ -1,7 +1,0 @@
-{
-    "name": "@anadi/core-types",
-    "version": "1.0.0",
-    "private": true,
-    "type": "module",
-    "types": "index.d.ts"
-}
