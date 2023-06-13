@@ -6,9 +6,9 @@
   > :information_source: 控制是否报告未被执行的代码
   - 当设置为 `true` 时，编译器会忽略未被执行的代码;
   - 当设置为 `false` 时，编译器会将未被执行的代码视为错误并报告;
-  ```ts
+  
   ![Alt text](image.png)
-  ```
+
   - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
 
 - **allowUnusedLabels** `[boolean]`
