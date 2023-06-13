@@ -1,46 +1,85 @@
-# @anadi/tsconfig
+# TypeScript > 5.0
 
-<p align="center">
-  <br>
-  <samp>
-    Hello there! I'm <b><a rel="nofollow noopener noreferrer" target="_blank" href="https://tanx.dev">Tan</a></b>.
-    <br>I'm a Computer Engineering Undergraduate Student from Mexico.<br>
+### Type Checking
 
-</samp>
+- **allowUnreachableCode**  `[boolean]`
+  > :information_source: 控制是否报告未被执行的代码
+  - 当设置为 `true` 时，编译器会忽略未被执行的代码;
+  - 当设置为 `false` 时，编译器会将未被执行的代码视为错误并报告;
+  ```ts
+  ![Alt text](image.png)
+  ```
+  - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
 
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/hollor_knight3.gif" width="200"/>
+- **allowUnusedLabels** `[boolean]`
+  > :information_source: 控制是否报告未被使用的标签
+  - 当设置为 `true` 时，编译器会忽略未被使用的标签;
+  - 当设置为 `false` 时，编译器会将未被使用的标签视为错误并报告;
+  - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
+  
 
-</p>
+- **alwaysStrict** `[boolean]`
+  - If you want to 
+ 
+- **exactOptionalPropertyTypes** `[boolean]`
+  - If you want to 
+  
+- **noFallthroughCasesInSwitch** `[boolean]`
+  - If you want to 
+  
+- **noImplicitAny** `[boolean]`
+  - If you want to
 
+- **noImplicitOverride** `[boolean]`
+  - If you want to
+  
+- **noImplicitReturns** `[boolean]`
+  - If you want to
+  
+- **noImplicitThis** `[boolean]`
+  - If you want to
+  
+- **noPropertyAccessFromIndexSignature** `[boolean]`
+  - If you want to 
+  
+- **noUncheckedIndexedAccess** `[boolean]`
+  - If you want to 
+  
+- **noUnusedLocals** `[boolean]`
+  - If you want to 
+  
+- **noUnusedParameters** `[boolean]`
+  - If you want to
+   
+- **strict** `[boolean]`
+> :information_source: We ask that all users read our [legal disclaimer](./DISCLAIMER.md) before using icons from Simple Icons.
+  
+- **strictBindCallApply** `[boolean]`
+  - If you want to 
+  
+- **strictFunctionTypes** `[boolean]`
+  - If you want to 
+  
+- **strictNullChecks** `[boolean]`
+  - If you want to 
+  
+- **strictPropertyInitialization** `[boolean]`
+  - When set to `true`, TypeScript will raise an error when a class property was declared but not set in the constructor. 
+  
+- **useUnknownInCatchVariables** `[boolean]`
+  - If you want to specify the error type as `unknown` in the catch error statemenet, you can use `true`. In `strict` mode, it will automatically be enabled.
+  ```js
+  try {
+    // Who knows what this might throw...
+    executeSomeThirdPartyCode();
+  }catch (err) { // err: unknown
 
-<details align="center">
+    // Error! Property 'message' does not exist on type 'unknown'.
+    console.error(err.message);
 
-<summary> <b> <samp> Light bonfire </samp></b></summary>
-<samp>
- <b><h2 style="color: #fc6203">B O N F I R E &nbsp; L I T !</h2> </b>
-
-<img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/bonefire.gif" width="200"/>
-
-Current Project: <a href="https://github.com/TanZng/dijkstras-shortest-path">Dijkstra's shortest path visualizer.</a>
-
-<p align="center">
-  <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/tania-r-zuniga/">
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/linkedin.png" width="30px" alt="LinkedIn"></a>
-  &nbsp; &nbsp;
-  <a rel="nofollow noopener noreferrer" target="_blank" href="https://twitter.com/tanx_dev">
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/twitter.png" width="30px" alt="Twitter"></a>
-  &nbsp; &nbsp;
-  <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.hackerrank.com/tanx_dev">
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/hackerrank.png" width="30px" alt="HackerRank"></a>
-  &nbsp; &nbsp;
-  <a rel="nofollow noopener noreferrer" target="_blank" href="https://leetcode.com/tan_dev/">
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/leetcode.png" width="30px" alt="LeetCode"></a>
-  &nbsp;
-  &nbsp;
-  <a rel="nofollow noopener noreferrer" target="_blank" href="https://tanx.dev/estus-flask">
-  <img src="https://raw.githubusercontent.com/TanZng/TanZng/master/assets/estus_flask.png" width="23px" alt="Secret"></a>
-</p> 
-
-
-</samp>
-</details>
+    // Works! We can narrow 'err' from 'unknown' to 'Error'.
+    if (err instanceof Error) {
+        console.error(err.message);
+    }
+  }
+  ```
