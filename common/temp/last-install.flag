@@ -1,7 +1,7 @@
 {
   "node": "18.16.0",
   "packageManager": "pnpm",
-  "packageManagerVersion": "8.6.1",
+  "packageManagerVersion": "8.6.2",
   "rushJsonFolder": "D:\\ANADI",
   "npmrcHash": "ee68e6b827bdf7ec9525260572c6fe6f94909053",
   "storePath": "D:\\ANADI\\common\\temp/pnpm-store",

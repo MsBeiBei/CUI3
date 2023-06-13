@@ -1,11 +1,6 @@
 {
     "name": "@anadi/core-glm",
+    "version": "1.0.0",
     "private": true,
-    "scripts": {
-        "test": "vitest",
-        "coverage": "vitest run --coverage"
-    },
-    "devDependencies": {
-        "@core/types": "workspace:^"
-    }
+    "type": "module"
 }
