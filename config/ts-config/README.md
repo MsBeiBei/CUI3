@@ -3,7 +3,7 @@
 ### Type Checking
 
 - **allowUnreachableCode**  `[boolean]`
-  > ⭐️ 控制是否报告未被执行的代码
+  > 控制是否报告未被执行的代码
   - 当设置为 `true` 时，编译器会忽略未被执行的代码;
   - 当设置为 `false` 时，编译器会将未被执行的代码视为错误并报告;
     ```ts
@@ -19,7 +19,7 @@
   - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
 
 - **allowUnusedLabels** `[boolean]`
-  > ⭐️ 控制是否报告未被使用的标签
+  > 控制是否报告未被使用的标签
   - 当设置为 `true` 时，编译器会忽略未被使用的标签;
   - 当设置为 `false` 时，编译器会将未被使用的标签视为错误并报告;
     ```ts
@@ -33,7 +33,7 @@
   
 
 - **alwaysStrict** `[boolean]`
-  > ⭐️ 控制是否使用严格模式
+  > 控制是否使用严格模式
  
 - **exactOptionalPropertyTypes** `[boolean]`
   - If you want to 

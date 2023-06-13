@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "types": "index.d.ts",
+  "scripts": {
+    "build": ""
+  },
   "devDependencies": {
     "typescript": "~5.1.3",
     "@types/node": "~20.3.1"

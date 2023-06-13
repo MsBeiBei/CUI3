@@ -1,4 +1,7 @@
 {
     "extends": "@anadi/tsconfig/base",
-    "compilerOptions": {}
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist"
+    }
 }
