@@ -6,6 +6,7 @@
         "lib": [
             "ESNext"
         ],
-        "allowUnreachableCode": false
+        "allowUnreachableCode": false,
+        "allowUnusedLabels":false
     }
 }

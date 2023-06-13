@@ -3,23 +3,37 @@
 ### Type Checking
 
 - **allowUnreachableCode**  `[boolean]`
-  > :information_source: 控制是否报告未被执行的代码
+  > ⭐️ 控制是否报告未被执行的代码
   - 当设置为 `true` 时，编译器会忽略未被执行的代码;
   - 当设置为 `false` 时，编译器会将未被执行的代码视为错误并报告;
-  
-  ![Alt text](image.png)
-
+    ```ts
+    function fn(n: number) {
+        if (n > 5) {
+            return true;
+        } else {
+            return false;
+        }
+        return true // 检测到无法访问的代码。ts(7027);
+    }
+    ```
   - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
 
 - **allowUnusedLabels** `[boolean]`
-  > :information_source: 控制是否报告未被使用的标签
+  > ⭐️ 控制是否报告未被使用的标签
   - 当设置为 `true` 时，编译器会忽略未被使用的标签;
   - 当设置为 `false` 时，编译器会将未被使用的标签视为错误并报告;
+    ```ts
+    function verifyAge(age: number) {
+        if (age > 18) {
+           verified: true // 未使用的标签。ts(7028);
+        }
+    }
+    ```
   - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
   
 
 - **alwaysStrict** `[boolean]`
-  - If you want to 
+  > ⭐️ 控制是否使用严格模式
  
 - **exactOptionalPropertyTypes** `[boolean]`
   - If you want to 

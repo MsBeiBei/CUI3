@@ -6,3 +6,10 @@ function fn(n: number) {
     }
     return true;
 }
+
+function verifyAge(age: number) {
+    // Forgot 'return' statement
+    if (age > 18) {
+      verified: true;
+    }
+}
