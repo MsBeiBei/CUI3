@@ -1,9 +1,8 @@
 {
-  "name": "@anadi/types",
+  "name": "@anadi/tsconfig",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "types": "index.d.ts",
   "devDependencies": {
     "typescript": "~5.1.3",
     "@types/node": "~20.3.1"

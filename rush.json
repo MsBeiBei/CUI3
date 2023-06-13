@@ -11,6 +11,14 @@
     {
       "packageName": "@anadi/glm",
       "projectFolder": "core/glm"
+    },
+    {
+      "packageName": "@anadi/copyright",
+      "projectFolder": "script/copyright"
+    },
+    {
+      "packageName": "@anadi/tsconfig",
+      "projectFolder": "config/ts-config"
     }
   ]
 }

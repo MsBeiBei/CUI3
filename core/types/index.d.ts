@@ -1,0 +1,1 @@
+/// <reference path="arrary.d.ts" />

@@ -2,5 +2,9 @@
   "name": "@anadi/glm",
   "version": "0.0.1",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "typescript": "~5.1.3",
+    "@types/node": "~20.3.1"
+  }
 }
