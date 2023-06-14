@@ -2,23 +2,30 @@
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
   "rushVersion": "5.100.0",
   "pnpmVersion": "8.6.2",
-  "nodeSupportedVersionRange": ">=18.15.0 <19.0.0",
+  "nodeSupportedVersionRange": "^18.16.0",
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 3,
+  "ensureConsistentVersions": true,
   "projects": [
     {
       "packageName": "@anadi/types",
-      "projectFolder": "core/types"
+      "projectFolder": "core/types",
+      "shouldPublish": true
     },
     {
       "packageName": "@anadi/glm",
-      "projectFolder": "core/glm"
+      "projectFolder": "core/glm",
+      "shouldPublish": true
     },
     {
       "packageName": "@anadi/copyright",
-      "projectFolder": "script/copyright"
+      "projectFolder": "script/copyright",
+      "shouldPublish": true
     },
     {
       "packageName": "@anadi/tsconfig",
-      "projectFolder": "config/ts-config"
+      "projectFolder": "config/ts-config",
+      "shouldPublish": true
     }
   ]
 }
