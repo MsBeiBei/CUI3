@@ -23,71 +23,95 @@ export default {
     keeps: {
       type: Number,
       default: 30
-    },
-    estimatedSize: {
-      type: Number,
-      default: 50
     }
   },
   data() {
     return {
       range: Object.create(null),
       sizes: new Map(),
-      offset: 0
+      offset: 0,
+      estimatedSize: 0
     };
   },
-  watch: {
-    offset(newVal, oldVal) {
-      const direction = newVal < oldVal || newVal === 0 ? "FRONT" : "BEHIND";
 
-      if (direction === "FRONT") {
-      } else if (direction === "BEHIND") {
-      }
-    }
-  },
   created() {
     this.init();
   },
+  mounted() {},
+
   methods: {
     init() {
-      this.updateRange(0, this.keeps);
+      this.checkRange(0, this.keeps);
     },
-    onScroll(event) {
-      const offset = this.getOffset();
-      const clientSize = this.getClientSize();
-      const scrollSize = this.getScrollSize();
 
-      if (offset < 0 || offset + clientSize > scrollSize + 1 || !scrollSize) {
-        return;
+    checkRange(start, end) {
+      const total = this.dataSource.length;
+
+      if (total <= this.keeps) {
+        start = 0;
+        end = total;
+      } else if (end - start < this.keeps - 1) {
+        start = end - this.keeps + 1;
       }
 
-      this.offset = offset;
-    },
-    getScrollOvers() {
-      const offset = this.offset;
-
-      if (offset <= 0) {
-        return 0;
+      if (this.range.start !== start) {
+        this.updateRange(start, end);
       }
     },
-    onResized(key, size) {
-      this.sizes.set(key, size);
-    },
+
     updateRange(start, end) {
       this.range.start = start;
       this.range.end = end;
+    },
+
+    onResized(key, size) {
+      this.sizes.set(key, size);
+      const rangeTotalSize = [...this.sizes.values()].reduce(
+        (acc, val) => acc + val,
+        0
+      );
+      this.estimatedSize = Math.round(rangeTotalSize / this.sizes.size);
+    },
+
+    onScroll() {
+      const offset = this.getOffset();
+
+      const overs = this.getScrollOvers();
+    },
+    getLastIndex() {
+      return this.dataSource.length - 1;
+    },
+    getEndByStart(start) {
+      const theoryEnd = start + this.param.keeps - 1;
+      const truelyEnd = Math.min(theoryEnd, this.getLastIndex());
+      return truelyEnd;
     },
     getOffset() {
       const el = this.$refs.root;
       return el ? Math.ceil(el.scrollTop) : 0;
     },
-    getClientSize() {
-      const el = this.$refs.root;
-      return el ? Math.ceil(el.clientHeight) : 0;
+
+    getScrollOvers() {
+      const offset = this.offset;
+
+      let low = 0;
+      let middle = 0;
+      let high = this.dataSource.length;
+
+      while (low <= high) {}
+
+      return low > 0 ? --low : 0;
     },
-    getScrollSize() {
-      const el = this.$refs.root;
-      return el ? Math.ceil(el.scrollHeight) : 0;
+    getIndexOffset(givenIndex) {
+      if (!givenIndex) {
+        return 0;
+      }
+
+      const total = this.dataSource.length;
+
+      let offset = [...this.sizes.values()].reduce((acc, val) => acc + val, 0);
+
+      return offset;
     }
   },
   render() {
@@ -95,8 +119,8 @@ export default {
       rootTag: RootTag,
       bodyTag: BodyTag,
       dataKey,
-      onScroll,
-      onResized
+      onResized,
+      onScroll
     } = this;
 
     const { start, end } = this.range;
@@ -105,6 +129,8 @@ export default {
 
     return (
       <RootTag class="z-list" ref="root" onScroll={onScroll}>
+        <div class="z-list__scroll" ref="scroll"></div>
+
         <BodyTag class="z-list__body" ref="body">
           {dataSource.map((item, index) => {
             const key =
@@ -128,7 +154,14 @@ export default {
 <style lang="scss" scoped>
 .z-list {
   height: 100%;
-  overflow: auto;
   position: relative;
+  overflow: auto;
+  &__body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+  }
 }
 </style>
