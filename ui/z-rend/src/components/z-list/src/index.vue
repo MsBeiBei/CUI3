@@ -16,15 +16,14 @@ export default {
       type: Array,
       default: () => []
     },
-    dataKey: {
+    rowKey: {
       type: [String, Function],
-      default: "key"
+      required: true
     },
     keeps: {
       type: Number,
       default: 30
-    },
-    buffer: Number
+    }
   },
   data() {
     return {
@@ -35,12 +34,22 @@ export default {
     };
   },
   computed: {
-    _buffer() {
-      return this.buffer || Math.round(this.keeps / 3);
+    buffer() {
+      return Math.round(this.keeps / 3);
     },
-    _data() {
-      const { start, end } = this.range;
-      return this.data.slice(start, end);
+    length() {
+      return this.data.length;
+    },
+    transform() {
+      return {
+        transform: `translate3d(0,${this.offset}px,0)`
+      };
+    },
+    height() {
+      const { getIndexOffset, length } = this;
+      return {
+        height: `${getIndexOffset(length - 1)}px`
+      };
     }
   },
   created() {
@@ -50,15 +59,13 @@ export default {
     init() {
       this.checkRange(0, this.keeps);
     },
-
     checkRange(start, end) {
-      const total = this.dataSource.length;
-
-      if (total <= this.keeps) {
+      const { length, keeps } = this;
+      if (length <= keeps) {
         start = 0;
-        end = total;
-      } else if (end - start < this.keeps - 1) {
-        start = end - this.keeps + 1;
+        end = length;
+      } else if (end - start < keeps) {
+        start = end - keeps;
       }
 
       if (this.range.start !== start) {
@@ -88,65 +95,29 @@ export default {
       if (offset < 0 || offset + clientSize > scrollSize + 1 || !scrollSize) {
         return;
       }
+      this.offset = offset
+      const start = this.getScrollOvers();
 
-      const direction =
-        offset < this.offset || offset === 0 ? "FRONT" : "BEHIND";
-      this.offset = offset;
-
-      if (direction === "FRONT") {
-        this.scrollToFront();
-      } else if (direction === "BEHIND") {
-        this.scrollToBehind();
-      }
-
-      this.$forceUpdate();
-    },
-    scrollToFront() {
-      const overs = this.getScrollOvers();
-      if (overs > this.range.start) {
-        return;
-      }
-      const start = Math.max(overs - this._buffer, 0);
       this.checkRange(start, this.getEndByStart(start));
     },
-    scrollToBehind() {
-      const overs = this.getScrollOvers();
-      if (overs < this.range.start + this._buffer) {
-        return;
-      }
 
-      this.checkRange(overs, this.getEndByStart(overs));
-    },
-    getLastIndex() {
-      return this.dataSource.length - 1;
-    },
     getEndByStart(start) {
       const theoryEnd = start + this.keeps;
-      const truelyEnd = Math.min(theoryEnd, this.getLastIndex());
+      const truelyEnd = Math.min(theoryEnd, this.length);
       return truelyEnd;
     },
-    getOffset() {
-      const el = this.$refs.root;
-      return el ? Math.ceil(el.scrollTop) : 0;
-    },
-    getClientSize() {
-      const el = this.$refs.root;
-      return el ? Math.ceil(el.clientHeight) : 0;
-    },
-    getScrollSize() {
-      const el = this.$refs.root;
-      return el ? Math.ceil(el.scrollHeight) : 0;
-    },
+
     getScrollOvers() {
       const offset = this.offset;
 
       let low = 0;
       let middle = 0;
       let middleOffset = 0;
-      let high = this.dataSource.length;
+      let high = this.length;
 
       while (low <= high) {
         middle = low + Math.floor((high - low) / 2);
+
         middleOffset = this.getIndexOffset(middle);
 
         if (middleOffset === offset) {
@@ -164,25 +135,33 @@ export default {
       if (!givenIndex) {
         return 0;
       }
-      const { getUniqueKey, dataSource, estimatedSize, sizes } = this;
+
+      const { rowKey } = this;
 
       let offset = 0;
-      let indexSize = 0;
 
       for (let index = 0; index < givenIndex; index++) {
-        const key = getUniqueKey(dataSource[index]);
-
-        indexSize = sizes.get(key);
-        offset =
-          offset + (typeof indexSize === "number" ? indexSize : estimatedSize);
+        const item = this.data[index];
+        const key = typeof rowKey === "function" ? rowKey(item) : item[rowKey];
+        const indexSize = this.sizes.get(key);
+        offset +=
+          typeof indexSize === "number" ? indexSize : this.estimatedSize;
       }
 
       return offset;
     },
-    getUniqueKey(item) {
-      return typeof this.dataKey === "function"
-        ? this.dataKey(item)
-        : item[this.dataKey];
+
+    getOffset() {
+      const el = this.$refs.root;
+      return el ? Math.ceil(el.scrollTop) : 0;
+    },
+    getClientSize() {
+      const el = this.$refs.root;
+      return el ? Math.ceil(el.clientHeight) : 0;
+    },
+    getScrollSize() {
+      const el = this.$refs.root;
+      return el ? Math.ceil(el.scrollHeight) : 0;
     }
   },
   render() {
@@ -191,23 +170,26 @@ export default {
       bodyTag: BodyTag,
       onResized,
       onScroll,
-      getUniqueKey
+      transform,
+      height,
+      rowKey
     } = this;
 
     const { start, end } = this.range;
 
-    const dataSource = this.dataSource.slice(start, end);
+    const data = this.data.slice(start, end);
 
     return (
       <RootTag class="z-list" ref="root" onScroll={onScroll}>
-        <div class="z-list__scroll" ref="scroll"></div>
+        <div class="z-list__scroll" ref="scroll" style={height}></div>
 
-        <BodyTag class="z-list__body" ref="body">
-          {dataSource.map((item, index) => {
-            const key = getUniqueKey(item);
+        <BodyTag class="z-list__body" ref="body" style={transform}>
+          {data.map((item, index) => {
+            const key =
+              typeof rowKey === "function" ? rowKey(item) : item[rowKey];
 
             return (
-              <Item key={key} onResized={onResized}>
+              <Item key={key} onResized={size => onResized(key, size)}>
                 {this.$scopedSlots.default
                   ? this.$scopedSlots.default(item, index, key)
                   : null}
@@ -231,7 +213,6 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    transform: translate3d(0, 0, 0);
   }
 }
 </style>

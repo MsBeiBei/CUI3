@@ -17,7 +17,7 @@ export default {
     if (typeof ResizeObserver !== "undefined") {
       this.resizeObserver = new ResizeObserver(() => {
         const size = this.$el ? this.$el[this.shape] : 0;
-        this.$emit("resized", this.$vnode.key, size);
+        this.$emit("resized", size);
       });
       this.resizeObserver.observe(this.$el);
     }
