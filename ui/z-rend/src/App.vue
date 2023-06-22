@@ -1,17 +1,13 @@
 <template>
   <div class="demo">
-    <div style="height: 500px;width: 375px;">
-      <ZList :data="list" row-key="id">
-        <template v-slot:default="record,index">
-          <div
-            style="border-bottom:1px solid #efefef; padding: 15px;font-size: 14px;color: #262626;"
-          >
-            <span class="index">#{{ index + 1 }}</span>
-            <span>{{ record.value }}</span>
-          </div>
-        </template>
-      </ZList>
-    </div>
+    <ZList :data="list" row-key="id" style="height: 500px;width: 375px;">
+      <template v-slot:default="record">
+        <div style="border-bottom:1px solid #efefef;box-sizing:border-box; padding: 15px;font-size: 14px;color: #262626;">
+          <span class="index">#{{ record.id + 1 }}</span>
+          <span>{{ record.value }}</span>
+        </div>
+      </template>
+    </ZList>
 
     <div style="height: 300px;width:25%">
       <div>{{sql}}</div>
@@ -26,7 +22,7 @@ import ZSql from "@/components/z-sql";
 import ZSelect from "@/components/z-select";
 import Mock from "mockjs";
 
-let count = 10000;
+let count = 5000;
 let items = [];
 for (let i = 0; i < count; i++) {
   items.push({ id: i, value: Mock.Random.cparagraph(1, 5) });

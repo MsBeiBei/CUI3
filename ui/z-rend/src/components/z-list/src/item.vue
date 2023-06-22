@@ -6,6 +6,10 @@ export default {
       type: String,
       default: "div"
     },
+    rowKey: {
+      type: String,
+      required: true
+    },
     horizontal: Boolean
   },
   computed: {
@@ -17,7 +21,7 @@ export default {
     if (typeof ResizeObserver !== "undefined") {
       this.resizeObserver = new ResizeObserver(() => {
         const size = this.$el ? this.$el[this.shape] : 0;
-        this.$emit("resized", size);
+        this.$emit("resized", this.rowKey, size);
       });
       this.resizeObserver.observe(this.$el);
     }
@@ -35,7 +39,7 @@ export default {
     const { tag: Tag } = this;
 
     return (
-      <Tag class="z-item">
+      <Tag class="z-item" role="item">
         {this.$slots.default ? this.$slots.default : null}
       </Tag>
     );
