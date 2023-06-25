@@ -39,7 +39,7 @@ export default {
     const { tag: Tag } = this;
 
     return (
-      <Tag class="z-item" role="item">
+      <Tag class="z-item">
         {this.$slots.default ? this.$slots.default : null}
       </Tag>
     );
