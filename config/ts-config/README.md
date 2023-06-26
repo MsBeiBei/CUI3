@@ -131,5 +131,14 @@
 
 当你的编辑器中有一个 JavaScript 项目时, TypeScript 会使用@types 定义的 DefinitelyTyped 集合自动为你的节点模块提供类型。这称为自动类型获取, 您可以使用配置中的 typeAcquisition 对象对其进行自定义。换句话来说就是设置自动引入库类型定义文件 .d.ts 相关
 
+- **enable** `[boolean]`
+  > 如果您想禁用或自定义此特性, 请创建 `jsconfig.json` 在项目的根目录中
+
+- **include** `[array]`
+  > 如果你有一个特定的模块, 应该包括(但不在 `node_modules` 中)
+
+- **exclude** `[array]`
+  > 如果不应该自动获取某个模块, 例如, 如果该库在您的 `node_modules` 中可用, 但您的团队已经同意不使用它
+
 - **disableFilenameBasedTypeAcquisition** `[boolean]`
-  > 是否禁用基于文件名的类型获取，TypeScript 的类型获取可以根据项目中的文件名推断应该添加哪些类型，默认：false
+  > 是否禁用基于文件名的类型获取，TypeScript 的类型获取可以根据项目中的文件名推断应该添加哪些类型，默认：`false`
