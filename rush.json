@@ -1,20 +1,30 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
   "rushVersion": "5.100.1",
-  "pnpmVersion": "8.6.2",
+  "pnpmVersion": "8.6.4",
   "nodeSupportedVersionRange": "^18.16.0",
   "projectFolderMinDepth": 2,
   "projectFolderMaxDepth": 3,
   "ensureConsistentVersions": true,
   "projects": [
     {
-      "packageName": "@anadi/types",
-      "projectFolder": "core/types",
+      "packageName": "@anadi/cond",
+      "projectFolder": "core/cond",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@anadi/cron",
+      "projectFolder": "core/cron",
       "shouldPublish": true
     },
     {
       "packageName": "@anadi/glm",
       "projectFolder": "core/glm",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@anadi/types",
+      "projectFolder": "core/types",
       "shouldPublish": true
     },
     {

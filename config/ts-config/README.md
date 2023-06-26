@@ -1,7 +1,8 @@
 # TypeScript 指导书 > 5.0
 
-### Type Checking
+## CompilerOptions
 
+### Type Checking
 - **allowUnreachableCode**  `[boolean]`
   > 控制是否报告未被执行的代码
   - 当设置为 `true` 时，编译器会忽略未被执行的代码;
@@ -125,9 +126,47 @@
   }
   ```
 
+### Modules
+- **allowArbitraryExtensions** `[boolean]`
+  
+- **allowImportingTsExtensions** `[boolean]`
+  
+- **allowUmdGlobalAccess** `[boolean]`
+  
+- **baseUrl** `[boolean]`
 
+### Emit
 
-### TypeAcquisitio
+### JavaScript Support
+
+### Editor Support
+### Interop Constraints
+### Backwards Compatibility
+
+### Language and Environment
+### Compiler Diagnostics
+### Projects
+### Output Formatting
+### Completeness
+
+### Watch Options
+- **assumeChangesOnlyAffectDirectDependencies** `[boolean]`
+
+## WatchOptions
+
+- **watchFile** `[boolean]`
+  
+- **watchDirectory** `[boolean]`
+  
+- **fallbackPolling** `[boolean]`
+  
+- **synchronousWatchDirectory** `[boolean]`
+  
+- **excludeDirectories** `[boolean]`
+  
+- **excludeFiles** `[boolean]`
+
+## TypeAcquisitio
 
 当你的编辑器中有一个 JavaScript 项目时, TypeScript 会使用@types 定义的 DefinitelyTyped 集合自动为你的节点模块提供类型。这称为自动类型获取, 您可以使用配置中的 typeAcquisition 对象对其进行自定义。换句话来说就是设置自动引入库类型定义文件 .d.ts 相关
 
