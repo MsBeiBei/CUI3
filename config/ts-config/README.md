@@ -13,7 +13,7 @@
         } else {
             return false;
         }
-        return true // 检测到无法访问的代码。ts(7027);
+        return true // Error! 检测到无法访问的代码。ts(7027);
     }
     ```
   - 如果仅仅是编译器提出警告，设置为 `undefined`(默认);
@@ -25,7 +25,7 @@
     ```ts
     function verifyAge(age: number) {
         if (age > 18) {
-           verified: true // 未使用的标签。ts(7028);
+           verified: true // Error! 未使用的标签。ts(7028);
         }
     }
     ```
@@ -33,13 +33,39 @@
   
 
 - **alwaysStrict** `[boolean]`
-  > 控制是否使用严格模式
+  > 当设置为 `true` 时，指定始终以严格模式检查每个模块，为每个编译后的js文件发出 `use strict`，用来告诉浏览器该js为严格模式
+  ```js
+  "use strict";
+  console.log(123);
+  ```
  
 - **exactOptionalPropertyTypes** `[boolean]`
-  - If you want to 
+  > 精确的可选属性类型，启用此行为，必须启用 `strictNullChecks`
+  - 当设置为 `true` 时，可选属性不能赋值为 `undefined`；
+  ```ts
+  interface UserDefaults {
+    colorThemeOverride?: "dark" | "light";
+  }
+
+  const settings: UserDefaults = {
+      colorThemeOverride:undefined; // Error! 不能将类型“undefined”分配给类型“"dark" | "light"”;
+  }
+  ```
+  - 当设置为 `false` 时，可选属性被允许显式用 `undefined` 代替
   
 - **noFallthroughCasesInSwitch** `[boolean]`
-  - If you want to 
+  > 禁止 `switch` 语句中的穿透的情况；开启后，如果 `switch` 语句的流程分支中没有 `break` 或 `return`，则会抛出警告，从而避免了意外的 `swtich` 判断穿透导致的问题
+  ```ts
+  const a: number = 6;
+ 
+  switch (a) {
+    case 0: // Warning! switch 语句中的 Fallthrough 情况;
+      console.log("even");
+    case 1:
+      console.log("odd");
+      break;
+  }
+  ```
   
 - **noImplicitAny** `[boolean]`
   - If you want to
@@ -66,7 +92,8 @@
   - If you want to
    
 - **strict** `[boolean]`
-> :information_source: We ask that all users read our [legal disclaimer](./DISCLAIMER.md) before using icons from Simple Icons.
+> 是否开启严格模式，开启严格模式后，TypeScript 将进行更为严格的类型检测
+
   
 - **strictBindCallApply** `[boolean]`
   - If you want to 

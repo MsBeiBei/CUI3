@@ -7,7 +7,8 @@
             "ESNext"
         ],
         "allowUnreachableCode": false,
-        "allowUnusedLabels":false,
-        "alwaysStrict":true
+        "allowUnusedLabels": false,
+        "alwaysStrict": true,
+        "noFallthroughCasesInSwitch": true
     }
 }
