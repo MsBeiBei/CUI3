@@ -28,6 +28,11 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@anadi/eslint-config",
+      "projectFolder": "config/eslint-config",
+      "shouldPublish": true
+    },
+    {
       "packageName": "@anadi/z-rend",
       "projectFolder": "ui/z-rend",
       "shouldPublish": true
