@@ -135,6 +135,76 @@
   
 - **baseUrl** `[boolean]`
 
+- **paths**
+- **baseUrl**
+- **customConditions**
+- **module**
+- **moduleResolution**
+- **moduleSuffixes**
+- **noResolve**
+- **paths**
+
+- **resolveJsonModule** `[boolean]`
+
+- **resolvePackageJsonExports** `[boolean]`
+  > 启用配置后，`import`来自`node_modules`中的模块时，TypeScript 会去解析模块对应的`package.json`中的`exports`字段；当 `moduleResolution` 是 `node16`, `nodenext`, or `bundler`，默认为`true`;
+
+- **resolvePackageJsonImports** `[boolean]`
+  > 启用配置后，`import`来自`node_modules`中的模块时，TypeScript 会去解析模块对应的`package.json`中的`imports`字段；当 `moduleResolution` 是 `node16`, `nodenext`, or `bundler`，默认为`true`;
+
+- **rootDir** `[string]`
+  > 指定输出目录的根目录，默认值为 `tsconfig.json` 所在目录
+  比如下面的例子：
+  ```ts
+  ├── src
+  │   ├── index.ts
+  ```
+  在配置 `outDir` 为 `lib` 的情况下进行编译，生成的目录结构如下：
+  ```ts
+  └── lib
+   ├── src
+   |  ├── index.js
+  ```
+  查看编译结果会发现 lib 下多了一层 src，这或许不符合我们的预期，为此可将 rootDir 设置为 src 后再次进行编译：
+  ```ts
+  └── lib
+   ├── index.js
+  ```
+  此时，生成的目录结构符合了我们的预期（即不包含 src 这一层）。
+
+- **rootDirs** `[array]`
+  > 指定多个目录作为根目录。这将允许编译器在这些虚拟目录中解析相对应的模块导入，就像它们被合并到同一目录中一样
+  ```ts
+  src
+  └── utils.ts
+  └── view.ts
+  views
+  └── render.ts
+  ```
+  ```ts
+  {
+    "compilerOptions": {
+      "rootDirs": ["src", "views"]
+    }
+  }
+  ```
+  上例中，我们可以：
+  在 src/view.ts 中以 import Render from "./render" 的形式加载 views/render.ts 中的内容；
+  在 views/render.ts 中以 import Utils from "./utils" 的形式加载 views/utils.ts 中的内容。
+
+
+- **typeRoots** `[array]`
+
+- **type** `[array]`
+  > 默认情况下，所有在“./node_modules/@types”下的可见包都包含在编译中；如果指定了类型，则只有列出的包将包含在全局范围中
+  ```ts
+  {
+    "compilerOptions": {
+      "types": ["node", "jest", "express"]
+    }
+  }
+  ```
+
 ### Emit
 
 ### JavaScript Support
