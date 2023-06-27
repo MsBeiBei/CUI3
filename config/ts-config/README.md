@@ -208,9 +208,25 @@
 ### Emit
 
 ### JavaScript Support
+- **allowJs** `[boolean]`
+  > allowJs设置的值为true或false，用来指定是否允许编译js文件，默认是false，即不编译js文件
+
+- **checkJs** `[boolean]`
+  > checkJs的值为true或false，用来指定是否检查和报告js文件中的错误，默认是false
+  
+- **maxNodeModuleJsDepth** `[number]`
 
 ### Editor Support
+- **disableSizeLimit** `[boolean]`
+  > 为了避免在处理非常大的 JavaScript 项目时可能出现的内存膨胀问题，TypeScript 将分配的内存量有一个上限。默认值为 `false`，如果设置为 `true`，则取消限制
+
+- **plugins** `[boolean]`
+
 ### Interop Constraints
+- **allowSyntheticDefaultImports** `[boolean]`
+  
+- **esModuleInterop** `[boolean]`
+
 ### Backwards Compatibility
 
 ### Language and Environment
