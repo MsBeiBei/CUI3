@@ -11,19 +11,23 @@
       </template>
     </ZList>
 
-
-
-    <!-- <div style="height: 300px;width:25%">
-      <ZSql v-model="sql" />
-    </div> -->
+    <div style="height: 300px;width:25%;margin-top:30px">
+      <ZCheckbox />
+      <ZCheckbox disabled />
+      <ZCheckbox size="small" />
+      <ZCheckbox size="large" />
+    </div>
   </div>
 </template>
 
 <script>
 import ZList from "@/components/z-list";
+import ZCheckbox from "@/components/z-checkbox";
 import ZSql from "@/components/z-sql";
 import ZSelect from "@/components/z-select";
 import Mock from "mockjs";
+
+
 
 let count = 10000;
 let items = [];
@@ -37,7 +41,8 @@ export default {
   components: {
     ZList,
     ZSql,
-    ZSelect
+    ZSelect,
+    ZCheckbox
   },
   data() {
     return {
@@ -51,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .demo {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .index {
   font-weight: bold;
