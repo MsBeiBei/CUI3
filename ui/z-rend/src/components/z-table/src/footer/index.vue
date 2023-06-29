@@ -1,9 +1,9 @@
 <script>
 export default {
-  name: "ZTableHeader",
+  name: "ZTableFooter",
   props: {},
   render() {
-    return <thead></thead>;
+    return <tfoot></tfoot>;
   }
 };
 </script>
