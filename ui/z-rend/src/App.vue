@@ -54,73 +54,112 @@ export default {
       sql: undefined,
       columns: [
         {
-          title: "Name",
-          dataIndex: "name",
-          key: "name",
-          width: 100,
+          field: "rowIndex",
+          key: "rowIndex",
+          title: "#",
+          width: 50,
           fixed: "left"
         },
         {
-          title: "Other",
+          field: "expand",
+          key: "expand",
+          title: "",
+          width: 100,
+          fixed: "left",
+          type: "expand"
+        },
+        {
+          title: "Basic Info",
+          fixed: "left",
+          width: 300,
           children: [
             {
-              title: "Age",
-              dataIndex: "age",
-              key: "age",
-              width: 150
+              field: "name",
+              key: "name",
+              title: "Name",
+              width: 200,
+              align: "left"
             },
             {
-              title: "Address",
+              field: "sex",
+              key: "sex",
+              title: "Sex",
+              width: 100,
+              align: "center",
+              sortBy: "",
+              edit: true
+            }
+          ]
+        },
+        {
+          title: "Personal Experience",
+          align: "center",
+          width: 800,
+          children: [
+            {
+              title: "Profession",
+              field: "profession",
+              key: "profession",
+              width: 200,
+              align: "left"
+            },
+            {
+              title: "IT Skills",
               children: [
                 {
-                  title: "Street",
-                  dataIndex: "street",
-                  key: "street",
-                  width: 150
+                  field: "proficiency",
+                  key: "proficiency",
+                  title: "Proficiency",
+                  width: 300,
+                  sortBy: "",
+                  edit: true
                 },
                 {
-                  title: "Block",
-                  children: [
-                    {
-                      title: "Building",
-                      dataIndex: "building",
-                      key: "building",
-                      width: 100
-                    },
-                    {
-                      title: "Door No.",
-                      dataIndex: "number",
-                      key: "number",
-                      width: 100
-                    }
-                  ]
+                  field: "skills",
+                  key: "skills",
+                  title: "Skills",
+                  width: 300,
+                  align: "left",
+                  edit: true
                 }
               ]
             }
           ]
         },
         {
-          title: "Company",
-          children: [
-            {
-              title: "Company Address",
-              dataIndex: "companyAddress",
-              key: "companyAddress",
-              width: 200
-            },
-            {
-              title: "Company Name",
-              dataIndex: "companyName",
-              key: "companyName"
-            }
-          ]
+          field: "address",
+          key: "address",
+          title: "Address",
+          width: 350,
+          align: "left"
         },
         {
-          title: "Gender",
-          dataIndex: "gender",
-          key: "gender",
-          width: 80,
-          fixed: "right"
+          field: "status",
+          key: "status",
+          title: "Status",
+          width: 100,
+          fixed: "right",
+          align: "left",
+          filter: {
+            filterList: [
+              {
+                value: 0,
+                label: "Working",
+                selected: false
+              },
+              {
+                value: 1,
+                label: "Metting",
+                selected: false
+              },
+              {
+                value: 2,
+                label: "Traveling",
+                selected: false
+              }
+            ],
+            isMultiple: true
+          }
         }
       ],
       data: []
