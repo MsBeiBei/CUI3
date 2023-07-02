@@ -19,6 +19,8 @@
     </div>
     <div style="height: 300px;width:25%;margin-top:30px">
       <ZTable :columns="columns" :data="data" />
+
+   
     </div>
   </div>
 </template>

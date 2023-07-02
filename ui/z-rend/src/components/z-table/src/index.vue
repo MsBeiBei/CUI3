@@ -3,13 +3,14 @@ import Header from "./header/index.vue";
 import Colgroup from "./colgroup/index.vue";
 import Body from "./body/index.vue";
 import Footer from "./footer/index.vue";
+import { useColumns } from "./hooks/useColumns";
 export default {
   name: "ZTable",
   components: {
-    Header,
-    Body,
-    Footer,
-    Colgroup
+    // Header,
+    // Body,
+    // Footer,
+    // Colgroup
   },
   props: {
     data: {
@@ -31,7 +32,9 @@ export default {
     };
   },
   render() {
-    const { colgroups, showHeader } = this;
+    const { columns, showHeader } = this;
+
+    useColumns(columns)
 
     const rootProps = {
       ref: "tableRootRef",
@@ -62,7 +65,6 @@ export default {
     return (
       <div {...rootProps}>
         <table {...tableProps}>
-          <Colgroup colgroups={colgroups} />
 
           {showHeader && <Header {...headerProps} />}
 

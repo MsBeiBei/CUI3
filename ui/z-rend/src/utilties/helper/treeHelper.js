@@ -1,22 +1,16 @@
-const DEFAULT_CONFIG = {
-    children: 'childre'
-}
-
-const getConfig = (config) => Object.assign({}, DEFAULT_CONFIG, config)
-
-
 export function treeMap(treeData, opt, level = 0) {
-    return treeData.map((item) => treeMapEach(item, opt, level));
+    return treeData.map((item, index) => treeMapEach(item, opt, level, index));
 }
 
 
 export function treeMapEach(
     data,
     { children = 'children', conversion },
-    level = 0
+    level = 0,
+    index
 ) {
     const haveChildren = Array.isArray(data[children]) && data[children].length > 0;
-    const conversionData = conversion(data) || {};
+    const conversionData = conversion(data, level, index) || {};
     if (haveChildren) {
         return {
             _level: level,
