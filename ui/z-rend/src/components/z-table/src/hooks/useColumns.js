@@ -6,13 +6,13 @@ export const useColumns = (columns) => {
         return []
     }
 
-
     let maxLevel = 0
 
     const cloneCloumns = treeMap(columns, { conversion })
 
     function conversion(column, level) {
         maxLevel = Math.max(maxLevel, level)
+        column._level = level
         return column
     }
 
