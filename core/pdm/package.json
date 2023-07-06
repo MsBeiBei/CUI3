@@ -1,0 +1,12 @@
+{
+    "name": "@anadi/pdm",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "build": ""
+    },
+    "devDependencies": {
+        "typescript": "~5.1.3",
+        "@types/node": "~20.3.1"
+    }
+}

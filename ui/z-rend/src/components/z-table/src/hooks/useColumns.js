@@ -22,18 +22,10 @@ export const useColumns = (columns) => {
     eachTree(cloneCloumns, convert)
 
     function convert(column, parentNode, level, index) {
-        if (isEmpty(column.children)) {
-            column._keys = column.key;
-            column._colspan = 1;
-            column._rowspan = maxLevel - level + 1;
-        } else {
-            let colspan = 0
-        }
+        console.log(column, level, index)
 
-        return column
+        
     }
-
-    console.log(cloneCloumns)
 
     return {
         isGroup: groupColumns.length > 1,

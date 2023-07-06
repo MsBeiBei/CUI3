@@ -12,6 +12,7 @@ export function treeMapEach(
     const haveChildren = Array.isArray(data[children]) && data[children].length > 0;
     const conversionData = conversion(data, level, index) || {};
     if (haveChildren) {
+        const next = level + 1
         return {
             _level: level,
             ...conversionData,
@@ -19,7 +20,7 @@ export function treeMapEach(
                 treeMapEach(i, {
                     children,
                     conversion,
-                }, ++level),
+                }, next),
             ),
         };
     } else {
