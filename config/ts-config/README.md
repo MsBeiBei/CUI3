@@ -1,6 +1,16 @@
-# TypeScript 指导书 > 5.0 :heart
+# :heart: TypeScript 指导书 > 5.0
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white)
+
+## 🔧 Files
+
+## 🔧 Extends
+
+## 🔧 Include
+
+## 🔧 Exclude
+
+## 🔧 References
 
 ## 🔧 CompilerOptions
 
@@ -344,5 +354,4 @@
   > 如果不应该自动获取某个模块, 例如, 如果该库在您的 `node_modules` 中可用, 但您的团队已经同意不使用它。
 
 - **disableFilenameBasedTypeAcquisition** `[boolean]`
-  > 是否禁用基于文件名的类型获取，TypeScript 的类型获取可以根据项目中的文件名推断应该添加哪些类型，默认：`false`。
-  > **Note** 此属性，没有测出具体作用。
+  > **Note** 此属性，没有测出具体作用。是否禁用基于文件名的类型获取，TypeScript 的类型获取可以根据项目中的文件名推断应该添加哪些类型，默认：`false`。
