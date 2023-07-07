@@ -28,6 +28,11 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@anadi/cli-core",
+      "projectFolder": "cli/core",
+      "shouldPublish": true
+    },
+    {
       "packageName": "@anadi/copyright",
       "projectFolder": "script/copyright",
       "shouldPublish": true
