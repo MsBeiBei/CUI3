@@ -43,6 +43,11 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@anadi/prettier-config",
+      "projectFolder": "config/prettier-config",
+      "shouldPublish": true
+    },
+    {
       "packageName": "@anadi/z-rend",
       "projectFolder": "ui/z-rend",
       "shouldPublish": true

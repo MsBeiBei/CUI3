@@ -14,6 +14,12 @@ importers:
         specifier: ~8.43.0
         version: 8.43.0
 
+  ../../config/prettier-config:
+    devDependencies:
+      prettier:
+        specifier: ~3.0.0
+        version: 3.0.0
+
   ../../config/ts-config:
     devDependencies:
       '@types/node':
@@ -5237,6 +5243,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /prettier@3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}

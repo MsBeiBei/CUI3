@@ -2,23 +2,23 @@
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white)
 
-## 🔧 Files `[array]`
+## 🔧 Files
 
 可以配置一个数组列表，里面包含指定文件的相对或绝对路径，编译器在编译的时候只会编译包含在files中列出的文件，如果不指定，则取决于有没有设置include选项，如果没有include选项，则默认会编译根目录以及所有子目录中的文件。这里列出的路径必须是指定文件，而不是某个文件夹，而且不能使用* ? **/ 等通配符。
 
-## 🔧 Extends `[string]`
+## 🔧 Extends
 
 可以通过指定一个其他的tsconfig.json文件路径，来继承这个配置文件里的配置，继承来的文件的配置会覆盖当前文件定义的配置。TS在3.2版本开始，支持继承一个来自Node.js包的tsconfig.json配置文件
 
-## 🔧 Include `[array]`
+## 🔧 Include
 
 可以指定要编译的路径列表，但是和files的区别在于，这里的路径可以是文件夹，也可以是文件，可以使用相对和绝对路径，而且可以使用通配符，比如"./src"即表示要编译src文件夹下的所有文件以及子文件夹的文件。
 
-## 🔧 Exclude `[array]`
+## 🔧 Exclude
 
 表示要排除的、不编译的文件，它也可以指定一个列表，规则和include一样，可以是文件或文件夹，可以是相对路径或绝对路径，可以使用通配符
 
-## 🔧 References `[array]`
+## 🔧 References
 
 一个对象数组，指定要引用的项目
 
@@ -170,8 +170,13 @@
 - **paths**
 - **baseUrl**
 - **customConditions**
-- **module**
-- **moduleResolution**
+
+- **module** `[node|commonjs|amd|amd|umd|system|es6/es2015|es2020|es2022/esnext|node16|nodenext]`
+用来指定要使用的模块标准
+
+- **moduleResolution** `[classic|node10/node|node16|nodenext|bunder]`
+用于选择模块解析策略
+
 - **moduleSuffixes**
 - **noResolve**
 - **paths**
@@ -247,6 +252,29 @@
   ```
 
 ### Emit
+
+- **declaration** `[boolean]`
+- **declarationDir** `[boolean]`
+- **declarationMap** `[boolean]`
+- **emitBOM** `[boolean]`
+- **emitDeclarationOnly** `[boolean]`
+- **importHelpers** `[boolean]`
+- **importsNotUsedAsValues** `[boolean]`
+- **inlineSourceMap** `[boolean]`
+- **inlineSources** `[boolean]`
+- **mapRoot** `[boolean]`
+- **newLine** `[boolean]`
+- **noEmit** `[boolean]`
+- **noEmitHelpers** `[boolean]`
+- **noEmitOnError** `[boolean]`
+- **outDir** `[boolean]`
+- **outFile** `[boolean]`
+- **preserveConstEnums** `[boolean]`
+- **preserveValueImports** `[boolean]`
+- **removeComments** `[boolean]`
+- **sourceMap** `[boolean]`
+- **sourceRoot** `[boolean]`
+- **stripInternal** `[boolean]`
 
 ### JavaScript Support
 

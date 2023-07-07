@@ -1,0 +1,11 @@
+{
+  "name": "@anadi/prettier-config",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": ""
+  },
+  "devDependencies": {
+    "prettier": "~3.0.0"
+  }
+}
