@@ -2,17 +2,66 @@
 
 ![Eslint](https://img.shields.io/badge/-Eslint-purple?logo=eslint&logoColor=white)
 
+✅:此规则默认在 "eslint:recommended"kaiqi;
+🔧:此规则报告的一些问题可以通过—— fix 命令行选项自动修复;
+💡:此规则报告的一些问题可通过编辑器建议手动修复;
+
 ## 🔧 Possible Problems
 
 这些规则与代码中可能的逻辑错误有关。
 
-- **array-callback-return**  `[boolean]`
+- **array-callback-return**
+用于在数组方法的回调中强制执行 return 语句。如果我们忘记在这些回调中写 return 语句,那可能是一个错误。如果您不想使用 return 或不需要返回的结果,请考虑使用 .forEach 代替。
 
-- **constructor-super**  `[boolean]`
+> "allowImplicit": 默认为`false`。当设置为 `true` 时,允许需要返回值的方法的回调隐式返回未定义的返回语句，该返回语句不包含任何表达式;
 
-- **for-direction**  `[boolean]`
+```ts
+/*eslint array-callback-return: ["error", { allowImplicit: false }]*/
+var undefAllTheThings = myArray.map(function(item) {
+    return; // Array.prototype.map() expects a return value from arrow function. eslint (array-callback-return)
+});
+```
 
-- **getter-return**  `[boolean]`
+> "checkForEach":默认为`false`。当设置为 `true` 时, .forEach 显示返回任何表达式报告一个错误;
+
+```ts
+/*eslint array-callback-return: ["error", { checkForEach: true }]*/
+var undefAllTheThings = myArray.forEach(function(item) {
+    return item; // Array.prototype.forEach() expects no useless return value from arrow function. eslint (array-callback-return)
+});
+```
+
+- **constructor-super** ✅
+派生类的构造函数必须调用 super ()。非派生类的构造函数不能调用 super ()。如果没有观察到这一点,JavaScript 引擎将引发一个运行时错误。该规则检查是否存在有效的 super ()调用。
+
+```ts
+/*eslint constructor-super: "error"*/
+class B {
+    constructor() {
+       super() //Parsing error: super() call outside constructor of a subclasseslint
+    }
+}
+
+class B {
+    constructor() {
+    }
+}
+
+class A extends B {
+    constructor() {} // Expected to call 'super()'. eslint (constructor-super)
+}
+```
+
+- **for-direction**  ✅
+具有永远不可能达到的停止条件的 for 循环,例如:强制执行 "for" 循环更新子句,以正确的方向移动计数器。
+
+```ts
+/*eslint for-direction: "error"*/
+for (var i = 0; i < 10; i--) {
+} // The update clause in this loop moves the variable in the wrong direction. eslint (for-direction)
+```
+
+- **getter-return**  ✅
 
 - **no-async-promise-executor**  `[boolean]`
 
