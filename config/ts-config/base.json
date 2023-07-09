@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "@anadi/tsconfig-base",
+    "compilerOptions": {
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "allowArbitraryExtensions":true,
+        "resolveJsonModule":true
+    }
+}

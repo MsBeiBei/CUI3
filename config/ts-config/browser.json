@@ -1,0 +1,11 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "@anadi/tsconfig-browser",
+    "extends": "./base.json",
+    "compilerOptions": {
+        "lib": [
+            "ESNext",
+            "DOM"
+        ]
+    }
+}
