@@ -1,26 +1,9 @@
 <template>
   <div class="demo">
-    <ZList :data="list" row-key="id" style="height: 500px;width: 375px;">
-      <template v-slot:default="record">
-        <div
-          style="border-bottom:1px solid #efefef;box-sizing:border-box; padding: 15px;font-size: 14px;color: #262626;"
-        >
-          <span class="index">#{{ record.id }}</span>
-          <span>{{ record.value }}</span>
-        </div>
-      </template>
-    </ZList>
-
     <div style="height: 300px;width:25%;margin-top:30px">
-      <ZCheckbox />
-      <ZCheckbox disabled />
-      <ZCheckbox size="small" />
-      <ZCheckbox size="large" />
-    </div>
-    <div style="height: 300px;width:25%;margin-top:30px">
-      <ZTable :columns="columns" :data="data" />
-
-   
+      <ZEllipsis>
+        22123123123
+      </ZEllipsis>
     </div>
   </div>
 </template>
@@ -31,6 +14,7 @@ import ZCheckbox from "@/components/z-checkbox";
 import ZSql from "@/components/z-sql";
 import ZSelect from "@/components/z-select";
 import ZTable from "@/components/z-table";
+import ZEllipsis from "@/components/z-ellipsis";
 import Mock from "mockjs";
 
 let count = 10000;
@@ -48,7 +32,8 @@ export default {
     ZSql,
     ZSelect,
     ZCheckbox,
-    ZTable
+    ZTable,
+    ZEllipsis
   },
   data() {
     return {
