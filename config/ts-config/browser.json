@@ -3,6 +3,7 @@
     "display": "@anadi/tsconfig-browser",
     "extends": "./base.json",
     "compilerOptions": {
+        "moduleResolution": "NodeNext",
         "lib": [
             "ESNext",
             "DOM",

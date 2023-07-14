@@ -9,7 +9,11 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "strict": true,
-        "allowArbitraryExtensions":true,
-        "resolveJsonModule":true
-    }
+        "allowArbitraryExtensions": true,
+        "resolveJsonModule": true
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }

@@ -3,12 +3,6 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "main": "tsconfig.json",
-  "files": [
-    "tsconfig.json",
-    "vue.json",
-    "esm.json"
-  ],
   "scripts": {
     "build": ""
   },

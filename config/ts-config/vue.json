@@ -1,8 +1,17 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "@anadi/tsconfig-vue",
+    "extends": "./vitest.json",
     "compilerOptions": {
-        "moduleResolution": "bundler"
+        "moduleResolution": "bundler",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
     },
-    "vueCompilerOptions": {}
+    "vueCompilerOptions": {
+        "target": "3"
+    }
 }

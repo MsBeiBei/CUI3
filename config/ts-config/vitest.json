@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "@anadi/tsconfig-vite",
+    "display": "@anadi/tsconfig-vitest",
     "extends":"./base.json",
     "compilerOptions": {
         "types": ["node","vite"]
