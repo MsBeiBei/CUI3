@@ -5,7 +5,8 @@
     "compilerOptions": {
         "lib": [
             "ESNext",
-            "DOM"
+            "DOM",
+            "DOM.Iterable"
         ]
     }
 }

@@ -12,7 +12,7 @@
   "scripts": {
     "build": ""
   },
-  "devDependencies": {
+  "dependencies": {
     "typescript": "~5.1.3",
     "@types/node": "~20.3.1"
   },
@@ -21,6 +21,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "tsconfig": "tsconfig.json"
+  }
 }

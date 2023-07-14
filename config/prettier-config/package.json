@@ -2,10 +2,17 @@
   "name": "@anadi/prettier-config",
   "version": "0.0.1",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "build": ""
   },
-  "devDependencies": {
+  "dependencies": {
     "prettier": "~3.0.0"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

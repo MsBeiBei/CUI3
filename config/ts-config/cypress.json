@@ -1,0 +1,9 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "@anadi/tsconfig-cypress",
+    "compilerOptions": {
+      "target": "ES2015",
+      "lib": ["ES2015", "DOM"],
+      "types": ["cypress"]
+    }
+  }
